@@ -1,0 +1,51 @@
+<!-- <div class="container" style="background-image: url('/assets/chat.jpg'); background-size: cover; background-position: center;"> -->
+
+<br>    <div class="container glassmorphism p-5">
+  <div class="overlay"></div>
+  <h1 class="" style="color: white; position: relative; z-index: 1">
+    Welcome to Jerry!
+  </h1>
+  <br />
+  <hr />
+  <% if current_user %> <%= link_to "Chat In Private" , gonowuser_path, class:
+  "btn btn-info spa fa fa-solid" %> <%= link_to "See Rooms" , gonow_path, class:
+  "btn btn-success spa fa fa-solid" %>
+  <br />
+  <br />
+  <%= button_to 'Sign Out' , signout_path, method: :delete ,class:"btn
+  btn-outline-dark text-light fa fa-exit spa" ,onclick:"checker()"%> <% else %>
+  <!-- <%= link_to "Chat Now" , chatpage_path, class: "btn btn-success" %> -->
+  <div class="container">
+    <br />
+    <!-- <p style="opacity: 0.8; color: white; position: relative; z-index: 1;"> -->
+    <p>Hi, visitor!</p>
+    Welcome to the Jerry Chat App! This is a real time web application where you
+    can have conversations with other users in different rooms or private.
+    <br />
+    <br />
+    <%=link_to "Sign Up" ,signup_path, class: "btn btn-light spa fa fa-solid" %>
+    <%=link_to "Sign In" ,signin_path, class: "btn btn-info spa fa fa-solid" %>
+    <!-- </p> -->
+  </div>
+  <% end %>
+</div>
+
+<br><br>
+<!-- footer section -->
+
+<!-- <footer id="footer"> -->
+<!-- 
+    <%= image_tag 'ksolveslogo.png',height:80%>
+     <a href="https://twitter.com/_Ksolves" target="_blank"> <i class=" share-icon  fa-brands fa-square-twitter"></i></a>
+     <a href="https://www.facebook.com/Ksolves" target="_blank"> <i class=" share-icon  fa-brands fa-facebook"></i></a>
+     <a href="https://www.instagram.com/_ksolves" target="_blank"> <i class=" share-icon fa-brands fa-square-instagram"></i></a>
+      <a href="https://www.ksolves.com/" target="_blank"> <i class=" share-icon fa-solid fa-globe"></a></i>
+      <a href="https://www.linkedin.com/company/ksolves" target="_blank"> <i class=" share-icon fa-brands fa-linkedin"></a></i>
+      <a href="https://www.youtube.com/channel/UCplv9V47g9VidekGN6Wp1ew" target="_blank"> <i class=" share-icon fa-brands fa-square-youtube"></a></i>
+      <a href="https://in.pinterest.com/ksolvesindialimited" target="_blank"> <i class=" share-icon fa-brands fa-pinterest"></a></i>
+<br>
+      <p>© Copyright Ksolves India Limited</p> -->
+      <!-- <p class="madeby">Made by : Jay Prakash 😊</p> -->
+
+      
+  <!-- </footer> -->

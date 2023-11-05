@@ -1,0 +1,18 @@
+<br />
+<div class="container text-center  glassmorphism p-5" >
+  <div class="card bg-dark mx-auto p-2" style="max-width: 800px;font-size:1.3em;box-shadow: 0 20px 30px rgba(0, 7, 5, 0.417);">
+    <div class="container ">
+      <br />
+    
+      <h4>
+        Hi, <% if current_user %> <%= current_user.username %> <%else%> visitor
+        <% end %>
+      </h4>
+       <p>Hope you have enjoyed using Jerry!!</p>
+      <p>
+        <%= link_to 'Go home' , root_path, class: "btn btn-success spa fa
+        fa-solid" %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="cont-<%= message.user.id %>">
+  <div class="message-box msg-<%= message.user.id %> ">
+    <div class=" d-flex align-items-center">
+      <% unless message.room.is_private %>
+        <h6 class="name"><i class="fa fa-user"></i>  <%= message.user.username %> </h6>
+        <% end %>
+    </div>
+
+
+    <span class="creation-time fa fa-clock fa-2xl ">
+      <%= message.created_at.ctime %>
+    </span>
+    <p><strong>
+        <!-- <%= message.user.username %> --> 
+      </strong> <%= message.content %>
+    </p>
+  </div>
+</div>

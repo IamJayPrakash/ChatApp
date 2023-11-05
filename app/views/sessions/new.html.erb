@@ -1,0 +1,26 @@
+<br>
+<br>
+<!-- <div class="container" > -->
+<div class="container">
+  <div class="card bg-dark mx-auto p-5 m-2 " style="max-width: 500px;box-shadow: 0 20px 30px rgba(0, 7, 5, 0.417);">
+    <div class="container text-center ">
+      <img src="/assets/caht2.png" alt="logo" style="height: 80px; width: 80px;">
+      <b>Welcome to Jerry Chat!! </b>
+    </div>
+   
+   <p> <h1 class="text-center">Sign In to Jerry</h1></p>
+  
+    <%= form_for (:session) do |f| %>
+      <%= f.label :username, 'User Name' ,class:"form-label" %>
+        <%= f.text_field :username, autocomplete: 'off' ,class: "form-control" , placeholder: "Enter your username (Case Sensitive)", required: true%>
+
+          <%= f.label :email, 'Email ID' ,class:"form-label" %>
+            <%= f.text_field :email, autocomplete: 'off' ,class: "form-control" , placeholder: "Enter your Email ID",required: true %>
+              <br>
+              <div class="container text-center d-grid ">
+              <%= f.submit 'Sign in' ,class:"btn btn-info spa fa-solid  "%>
+              <%=link_to "Register Now" ,signup_path, class: "btn btn-light spa fa fa-solid" %>
+              </div>
+                <% end %>
+  </div>
+</div>

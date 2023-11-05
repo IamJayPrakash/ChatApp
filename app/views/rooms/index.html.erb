@@ -1,0 +1,65 @@
+<div class="row">
+  <div id="side_panel" class="col-md-2 col-sm-2">
+    <%if current_user%> <h5>
+      <i class="fa-solid fa-user-large"></i>
+      Hi, <%= @current_user.username %>
+
+    </h5>
+    <%end%>
+    <br />
+    <%= button_to 'Sign Out' , signout_path, method: :delete ,class:"btn
+    btn-outline-dark text-light spa fa fa-solid" ,onclick:"checker()"%>
+    <br />
+    <hr />
+    <h4 class="user_row">All Users</h4>
+
+    <div>
+      <%= turbo_stream_from "users" %>
+      <div id="users"><%= render @users %></div>
+    </div>
+    <br />
+    <h4 class="rooms_row">All Rooms</h4>
+    <%= render partial: "layouts/new_room_form" %>
+    <div>
+      <%= turbo_stream_from "rooms" %>
+      <div id="rooms">
+        <br />
+        <ul class="list-group">
+          <%= render @rooms %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div id="room_container" class="col-9 mbox">
+    <% if @single_room %>
+      <h2 class="text-center text-dark">
+        <%= @user&.username || @single_room.name %>
+      </h2>
+      <hr />
+  
+      <% end %>
+
+        <%= turbo_stream_from @single_room %>
+          <div id="messages">
+            <% @messages.each do |message| %>
+              <%= render partial: 'messages/message' , locals: { message: message } %>
+            <% end %>
+          </div>
+          
+          <%= render partial: 'layouts/new_message_form' %>
+          
+  </div>
+  
+
+   
+</div>
+
+  
+  <a href="">
+    <button class="btn btn-outline-info btn-lg rounded-pill fa fa-circle-up"></button>
+  </a>
+
+
+

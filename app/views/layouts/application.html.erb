@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Jerry</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/33c005a0aa.js" crossorigin="anonymous"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<style>
+  body {
+    background-color: rgb(36, 35, 35);
+    color: white;
+    margin: 2%;
+    margin-top: 0.5%;
+  }
+
+  .mbox {
+    background: linear-gradient(-80deg,
+        #ab62d6,
+        #70b2fefe,
+        #acd9e9,
+        #63edca,
+        #2cecf6,
+        rgb(14, 232, 138),
+        rgb(4, 188, 255),
+        rgb(0, 132, 255));
+    background-size: 400% 400%;
+    animation: gradient 8s ease-in infinite;
+    border-radius: 50px;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .msg-form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    padding: 20px;
+    margin: 20px;
+  }
+
+
+  .msg-content {
+    width: 80%;
+    margin-right: 15px;
+    color: black;
+
+  }
+
+
+
+  <%=".msg-#{current_user&.id}" %> {
+    background-color: rgb(24, 154, 230);
+    !important;
+    padding: 18px;
+    margin: 25px;
+    border-radius: 50px;
+    width: fit-content;
+    word-wrap: break-word;
+  }
+
+  <%=".cont-#{current_user&.id}" %> {
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .creation-time {
+    font-size: 11px;
+    color: rgba(232, 232, 232, 0.644);
+  }
+
+  .spa {
+    letter-spacing: 1.01px;
+  }
+
+  .bname {
+    font-weight: bolder;
+    letter-spacing: 3px;
+    padding-left: 5px;
+    color: #ab62d6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5em;
+  }
+
+  .navbar {
+    background: linear-gradient(-40deg,
+        #eadff0,
+        #70b2fefe,
+        #acd9e9,
+        #c0efed,
+        #ffffff,
+        rgb(205, 231, 205),
+        rgb(198, 218, 224),
+        rgb(155, 241, 241));
+    background-size: 400% 400%;
+    animation: gradient 10s ease-in infinite;
+    border-radius: 100px;
+  }
+
+
+
+  .spa:hover {
+    border-color: rgb(157, 255, 0);
+    box-shadow: #d8d9da;
+    /* letter-spacing: 1.1px; */
+  }
+
+
+  .glassmorphism {
+    background: rgba(41, 56, 58, 0.27);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 8px solid rgba(38, 201, 213, 0.97);
+  }
+
+  /* footer section  */
+
+  #footer {
+    background-color: #221e1e;
+    text-align: center;
+    /* padding:1%; */
+    margin-top: 6%;
+  }
+
+  .share-icon {
+    padding: 1%;
+    margin: 3px 10px;
+    font-size: 2rem;
+    color: black;
+  }
+
+  .share-icon:hover {
+    transform: scale(1.3);
+    color: rgb(180, 222, 225);
+
+  }
+</style>
+
+<body>
+  <%= render 'layouts/navbar' %>
+    <br />
+    <% if notice %>
+      <p class="alert alert-success">
+        <%= notice %>
+      </p>
+      <% end %>
+        <% if alert %>
+          <p class="alert alert-danger">
+            <%= alert %>
+          </p>
+          <% end %>
+            <%= yield %>
+
+
+
+              <script>
+                function checker() {
+                  var result = confirm("Are you sure to Signout?");
+                  if (result == false) {
+                    event.preventDefault();
+                  }
+                }
+              </script>
+</body>
+
+</html>

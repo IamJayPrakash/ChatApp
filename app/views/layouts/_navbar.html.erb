@@ -1,0 +1,33 @@
+<nav  class="navbar navbar-expand-lg bg-body-tertiary bg-light">
+    <div class="container-fluid">
+        <span><i class="fa-brands fa-rocketchat fa-2xl" style="color: #00b997;"></i></span>
+        <%= link_to 'Jerry', root_path, class: 'navbar-brand fa-solid fa-2xl bname' %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <%= link_to 'Home', root_path, class: 'nav-link spa fa fa-solid fa-house' %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'About', aboutjerry_path, class: 'nav-link fa-solid fa-pager spa', onclick: "alert('Thanks for using Jerry :)')" %>
+                </li>
+                <!-- <li class="nav-item">
+                    <% if current_user %>
+                        <%= link_to 'Sign Out', signin_path, class: 'nav-link fa-solid fa-door-open spa', onclick: "checker()" %>
+                    <% end %>
+                </li> -->
+                <li class="nav-item text-dark text-middle text-lg ">
+                  <img src="/assets/favicon.ico" alt="hehe">
+                  
+                    <% if current_user%>
+                      User: <%= current_user.username %>
+                  <%end%>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
